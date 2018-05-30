@@ -168,7 +168,7 @@ const path = require('path');
 
 const webpack = require('webpack');
 
-const libraryName = 'express-authenticated-router';
+const libraryName = 'hc-utilities';
 
 const nodeModules = {};
 
