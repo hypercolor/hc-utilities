@@ -1,6 +1,6 @@
 export class Arrays {
 
-  public static deduplicate<T>(array: Array<T>, isEqual: (a: T, b: T) => boolean) {
+  public static deduplicate<T>(array: Array<T>, isEqual: (a: T, b: T) => boolean): Array<T> {
     const uniques: Array<T> = [];
     array.forEach(val => {
       let found = false;
@@ -14,5 +14,6 @@ export class Arrays {
         uniques.push(val);
       }
     });
+    return uniques;
   }
 }

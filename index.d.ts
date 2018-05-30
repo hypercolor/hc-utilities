@@ -62,6 +62,6 @@ export class RetryWithDelay {
 }
 
 export class Arrays {
-    static deduplicate<T>(array: Array<T>, isEqual: (a: T, b: T) => boolean): void;
+    static deduplicate<T>(array: Array<T>, isEqual: (a: T, b: T) => boolean): Array<T>;
 }
 

@@ -157,6 +157,7 @@ var Arrays = (function () {
                 uniques.push(val);
             }
         });
+        return uniques;
     };
     return Arrays;
 }());
