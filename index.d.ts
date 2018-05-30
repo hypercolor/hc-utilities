@@ -61,3 +61,7 @@ export class RetryWithDelay {
     static retry(promiseFunction: (retryNumber: number) => Promise<any>, numRetries: number, delayMs: number): Promise<any>;
 }
 
+export class Arrays {
+    static deduplicate<T>(array: Array<T>, isEqual: (a: T, b: T) => boolean): void;
+}
+

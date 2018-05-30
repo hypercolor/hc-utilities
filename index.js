@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.ts ***!
   \******************/
-/*! exports provided: JsonParse, Keygen, Numbers, PromiseQueue, ResolvablePromise, RetryWithDelay */
+/*! exports provided: JsonParse, Keygen, Numbers, PromiseQueue, ResolvablePromise, RetryWithDelay, Arrays */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -114,12 +114,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_retry_with_delay__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./src/retry-with-delay */ "./src/retry-with-delay.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RetryWithDelay", function() { return _src_retry_with_delay__WEBPACK_IMPORTED_MODULE_5__["RetryWithDelay"]; });
 
+/* harmony import */ var _src_arrays__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./src/arrays */ "./src/arrays.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Arrays", function() { return _src_arrays__WEBPACK_IMPORTED_MODULE_6__["Arrays"]; });
 
 
 
 
 
 
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/arrays.ts":
+/*!***********************!*\
+  !*** ./src/arrays.ts ***!
+  \***********************/
+/*! exports provided: Arrays */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Arrays", function() { return Arrays; });
+
+var Arrays = (function () {
+    function Arrays() {
+    }
+    Arrays.deduplicate = function (array, isEqual) {
+        var uniques = [];
+        array.forEach(function (val) {
+            var found = false;
+            for (var ii = 0; ii < uniques.length; ii += 1) {
+                if (isEqual(val, uniques[ii])) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                uniques.push(val);
+            }
+        });
+    };
+    return Arrays;
+}());
 
 
 
