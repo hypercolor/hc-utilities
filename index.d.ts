@@ -6,7 +6,8 @@ export class JsonParse {
       * @param jsonString
       * @returns {*}
       */
-    static parse: (jsonString: string) => Promise<{}>;
+    static parse(jsonString: string): Promise<{}>;
+    static parseIntArrayFromJsonString(param: string): Array<number>;
 }
 
 export class Keygen {
@@ -64,7 +65,6 @@ export class RetryWithDelay {
 
 export class Arrays {
     static deduplicate<T>(array: Array<T>, isEqual: (a: T, b: T) => boolean): Array<T>;
-    static parseQueryParamIdArray(param: string): number[];
 }
 
 export class Strings {

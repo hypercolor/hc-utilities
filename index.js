@@ -163,12 +163,6 @@ var Arrays = (function () {
         });
         return uniques;
     };
-    Arrays.parseQueryParamIdArray = function (param) {
-        if (!param) {
-            return [];
-        }
-        return param.split(',').map(function (id) { return parseInt(id, 10); }).filter(function (id) { return !isNaN(id); });
-    };
     return Arrays;
 }());
 
@@ -205,6 +199,12 @@ var JsonParse = (function () {
                 reject(err);
             }
         });
+    };
+    JsonParse.parseIntArrayFromJsonString = function (param) {
+        if (!param) {
+            return [];
+        }
+        return param.split(',').map(function (id) { return parseInt(id, 10); }).filter(function (id) { return !isNaN(id); });
     };
     return JsonParse;
 }());

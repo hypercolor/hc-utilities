@@ -4,7 +4,7 @@ export class JsonParse {
    * @param jsonString
    * @returns {*}
    */
-  public static parse = (jsonString: string) => {
+  public static parse(jsonString: string) {
     return new Promise((resolve, reject) => {
       try {
         const json = JSON.parse(jsonString);
@@ -16,5 +16,13 @@ export class JsonParse {
 
 
 
-  };
+  }
+
+
+  public static parseIntArrayFromJsonString(param: string): Array<number> {
+    if (!param) {
+      return [];
+    }
+    return param.split(',').map(id => parseInt(id, 10)).filter(id => !isNaN(id));
+  }
 }
