@@ -9,4 +9,9 @@ export class Numbers {
     return !isNaN(parseFloat(n)) && isFinite(n);
   };
 
+
+  public static roundFloat(value: number, numDecimals: number) {
+    return Number(Math.round(value+'e'+numDecimals as any)+'e-'+numDecimals);
+  }
+
 }

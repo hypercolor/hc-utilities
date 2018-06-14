@@ -40,6 +40,7 @@ export class Numbers {
       * @returns {boolean}
       */
     static isNumber: (n: any) => boolean;
+    static roundFloat(value: number, numDecimals: number): number;
 }
 
 export class PromiseQueue {
@@ -63,5 +64,10 @@ export class RetryWithDelay {
 
 export class Arrays {
     static deduplicate<T>(array: Array<T>, isEqual: (a: T, b: T) => boolean): Array<T>;
+    static parseQueryParamIdArray(param: string): number[];
+}
+
+export class Strings {
+    static sanitizeEmail(email: string): string;
 }
 

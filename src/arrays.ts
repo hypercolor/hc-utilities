@@ -16,4 +16,12 @@ export class Arrays {
     });
     return uniques;
   }
+
+
+  public static parseQueryParamIdArray(param: string) {
+    if (!param) {
+      return [];
+    }
+    return param.split(',').map(id => parseInt(id, 10)).filter(id => !isNaN(id));
+  }
 }

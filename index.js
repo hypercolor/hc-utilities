@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!******************!*\
   !*** ./index.ts ***!
   \******************/
-/*! exports provided: JsonParse, Keygen, Numbers, PromiseQueue, ResolvablePromise, RetryWithDelay, Arrays */
+/*! exports provided: JsonParse, Keygen, Numbers, PromiseQueue, ResolvablePromise, RetryWithDelay, Arrays, Strings */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -116,6 +116,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _src_arrays__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./src/arrays */ "./src/arrays.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Arrays", function() { return _src_arrays__WEBPACK_IMPORTED_MODULE_6__["Arrays"]; });
+
+/* harmony import */ var _src_strings__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./src/strings */ "./src/strings.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Strings", function() { return _src_strings__WEBPACK_IMPORTED_MODULE_7__["Strings"]; });
+
 
 
 
@@ -158,6 +162,12 @@ var Arrays = (function () {
             }
         });
         return uniques;
+    };
+    Arrays.parseQueryParamIdArray = function (param) {
+        if (!param) {
+            return [];
+        }
+        return param.split(',').map(function (id) { return parseInt(id, 10); }).filter(function (id) { return !isNaN(id); });
     };
     return Arrays;
 }());
@@ -304,6 +314,9 @@ __webpack_require__.r(__webpack_exports__);
 var Numbers = (function () {
     function Numbers() {
     }
+    Numbers.roundFloat = function (value, numDecimals) {
+        return Number(Math.round(value + 'e' + numDecimals) + 'e-' + numDecimals);
+    };
     /**
      * Determine if the input is a numeric type
      *
@@ -489,6 +502,30 @@ var RetryWithDelay = (function () {
         });
     };
     return RetryWithDelay;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/strings.ts":
+/*!************************!*\
+  !*** ./src/strings.ts ***!
+  \************************/
+/*! exports provided: Strings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Strings", function() { return Strings; });
+
+var Strings = (function () {
+    function Strings() {
+    }
+    Strings.sanitizeEmail = function (email) {
+        return email.toLowerCase().replace(/ /g, '');
+    };
+    return Strings;
 }());
 
 

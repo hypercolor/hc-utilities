@@ -6,3 +6,4 @@ export {PromiseQueue} from './src/promise_queue';
 export {ResolvablePromise} from './src/resolvable-promise';
 export {RetryWithDelay} from './src/retry-with-delay';
 export {Arrays} from './src/arrays';
+export {Strings} from './src/strings';
