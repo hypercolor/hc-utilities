@@ -45,7 +45,7 @@ export class Numbers {
 }
 
 export class PromiseQueue {
-    constructor(maxConcurrent: number);
+    constructor(maxConcurrent?: number);
     add(promiseFunction: () => Promise<any>): Promise<any>;
     clear(resolvedResult: any): void;
     runAllPromiseFunctionsCancellable<T>(promiseFunctions: Array<() => Promise<T>>): Promise<any>;

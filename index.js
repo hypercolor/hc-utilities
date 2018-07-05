@@ -351,7 +351,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var PromiseQueue = (function () {
     function PromiseQueue(maxConcurrent) {
-        this.queue = new p_queue__WEBPACK_IMPORTED_MODULE_1__({ concurrency: maxConcurrent });
+        this.queue = new p_queue__WEBPACK_IMPORTED_MODULE_1__({ concurrency: maxConcurrent || 1 });
     }
     PromiseQueue.prototype.add = function (promiseFunction) {
         return this.queue.add(promiseFunction);

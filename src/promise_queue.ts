@@ -8,8 +8,8 @@ export class PromiseQueue {
 
   private pendingPromise: ResolvablePromise<any> | null;
 
-  constructor(maxConcurrent: number){
-    this.queue = new PQueue({concurrency: maxConcurrent});
+  constructor(maxConcurrent?: number){
+    this.queue = new PQueue({concurrency: maxConcurrent || 1});
   }
 
   public add(promiseFunction: () => Promise<any>): Promise<any> {
