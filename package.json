@@ -1,6 +1,6 @@
 {
   "name": "hc-utilities",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Various utility functions by Hypercolor Digital",
   "main": "index.js",
   "types": "index.d.ts",
