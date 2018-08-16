@@ -317,6 +317,18 @@ var Numbers = (function () {
     Numbers.roundFloat = function (value, numDecimals) {
         return Number(Math.round(value + 'e' + numDecimals) + 'e-' + numDecimals);
     };
+    Numbers.zeroPad = function (numberValue, minDigits) {
+        var desiredDigits = Math.round(minDigits);
+        var stringValue = '' + numberValue;
+        if (desiredDigits > 0) {
+            var numDigits = Math.ceil(Math.log10(numberValue));
+            while (numDigits < desiredDigits) {
+                stringValue = '0' + stringValue;
+                numDigits += 1;
+            }
+        }
+        return stringValue;
+    };
     /**
      * Determine if the input is a numeric type
      *

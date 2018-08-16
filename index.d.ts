@@ -42,6 +42,7 @@ export class Numbers {
       */
     static isNumber: (n: any) => boolean;
     static roundFloat(value: number, numDecimals: number): number;
+    static zeroPad(numberValue: number, minDigits: number): string;
 }
 
 export class PromiseQueue {
