@@ -321,7 +321,7 @@ var Numbers = (function () {
         var desiredDigits = Math.round(minDigits);
         var stringValue = '' + numberValue;
         if (desiredDigits > 0) {
-            var numDigits = Math.ceil(Math.log10(numberValue));
+            var numDigits = Math.ceil(Math.log10(Math.floor(numberValue) + 0.000001));
             while (numDigits < desiredDigits) {
                 stringValue = '0' + stringValue;
                 numDigits += 1;

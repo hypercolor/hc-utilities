@@ -2,8 +2,7 @@
  * @module Keygen
  */
 
-import * as Bcrypt  from 'bcrypt';
-import * as crypto from 'crypto';
+import * as crypto from 'crypto'
 
 export class Keygen {
   /**
@@ -17,15 +16,15 @@ export class Keygen {
    * @api private
    */
   public static uid(len: number): string {
-    const buf = [];
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const length = chars.length;
+    const buf = []
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    const length = chars.length
 
     for (let i = 0; i < len; ++i) {
-      buf.push(chars[getRandomInt(0, length - 1)]);
+      buf.push(chars[getRandomInt(0, length - 1)])
     }
 
-    return buf.join('');
+    return buf.join('')
   }
 
   /**
@@ -38,25 +37,18 @@ export class Keygen {
   public static hmacSHA512(key: string, message: string): Promise<string> {
     return new Promise((resolve, reject) => {
       if (!message) {
-        reject('hmacSHA512 input message was null or undefined.');
+        reject('hmacSHA512 input message was null or undefined.')
       } else if (!key) {
-        reject('hmacSHA512 input key was null or undefined.');
+        reject('hmacSHA512 input key was null or undefined.')
       } else {
-        const buf = new Buffer(key, 'utf-8');
-        const hash = crypto.createHmac('sha512', buf);
-        hash.update(new Buffer(message, 'utf-8'));
-        resolve(hash.digest('hex'));
+        const buf = new Buffer(key, 'utf-8')
+        const hash = crypto.createHmac('sha512', buf)
+        hash.update(new Buffer(message, 'utf-8'))
+        resolve(hash.digest('hex'))
       }
-    });
-  }
-
-
-  public static hashSaltPassword(password: string): string {
-    const salt = Bcrypt.genSaltSync(10);
-    return Bcrypt.hashSync(password, salt);
+    })
   }
 }
-
 
 /**
  * Return a random int between min and max inclusive.
@@ -68,5 +60,5 @@ export class Keygen {
  */
 
 function getRandomInt(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }
