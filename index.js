@@ -130,7 +130,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 /***/ }),
 
 /***/ "./src/arrays.ts":
@@ -143,8 +142,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Arrays", function() { return Arrays; });
-
-var Arrays = (function () {
+var Arrays = /** @class */ (function () {
     function Arrays() {
     }
     Arrays.deduplicate = function (array, isEqual) {
@@ -180,8 +178,7 @@ var Arrays = (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JsonParse", function() { return JsonParse; });
-
-var JsonParse = (function () {
+var JsonParse = /** @class */ (function () {
     function JsonParse() {
     }
     /**
@@ -223,17 +220,13 @@ var JsonParse = (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Keygen", function() { return Keygen; });
-/* harmony import */ var bcrypt__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bcrypt */ "bcrypt");
-/* harmony import */ var bcrypt__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bcrypt__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto */ "crypto");
-/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_1__);
-
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! crypto */ "crypto");
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_0__);
 /**
  * @module Keygen
  */
 
-
-var Keygen = (function () {
+var Keygen = /** @class */ (function () {
     function Keygen() {
     }
     /**
@@ -272,15 +265,11 @@ var Keygen = (function () {
             }
             else {
                 var buf = new Buffer(key, 'utf-8');
-                var hash = crypto__WEBPACK_IMPORTED_MODULE_1__["createHmac"]('sha512', buf);
+                var hash = crypto__WEBPACK_IMPORTED_MODULE_0__["createHmac"]('sha512', buf);
                 hash.update(new Buffer(message, 'utf-8'));
                 resolve(hash.digest('hex'));
             }
         });
-    };
-    Keygen.hashSaltPassword = function (password) {
-        var salt = bcrypt__WEBPACK_IMPORTED_MODULE_0__["genSaltSync"](10);
-        return bcrypt__WEBPACK_IMPORTED_MODULE_0__["hashSync"](password, salt);
     };
     return Keygen;
 }());
@@ -310,8 +299,7 @@ function getRandomInt(min, max) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Numbers", function() { return Numbers; });
-
-var Numbers = (function () {
+var Numbers = /** @class */ (function () {
     function Numbers() {
     }
     Numbers.roundFloat = function (value, numDecimals) {
@@ -360,9 +348,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var p_queue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(p_queue__WEBPACK_IMPORTED_MODULE_1__);
 
 
-
-var PromiseQueue = (function () {
+var PromiseQueue = /** @class */ (function () {
     function PromiseQueue(maxConcurrent) {
+        this.pendingPromise = null;
         this.queue = new p_queue__WEBPACK_IMPORTED_MODULE_1__({ concurrency: maxConcurrent || 1 });
     }
     PromiseQueue.prototype.add = function (promiseFunction) {
@@ -434,10 +422,11 @@ var PromiseQueue = (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResolvablePromise", function() { return ResolvablePromise; });
-
-var ResolvablePromise = (function () {
+var ResolvablePromise = /** @class */ (function () {
     function ResolvablePromise(promise) {
         var _this = this;
+        this.resolve = function () { return null; };
+        this.reject = function () { return null; };
         this.promise = new Promise(function (resolve, reject) {
             _this.resolve = resolve;
             _this.reject = reject;
@@ -469,8 +458,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RetryWithDelay", function() { return RetryWithDelay; });
 /* harmony import */ var _promise_queue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./promise_queue */ "./src/promise_queue.ts");
 
-
-var RetryWithDelay = (function () {
+var RetryWithDelay = /** @class */ (function () {
     function RetryWithDelay() {
     }
     RetryWithDelay.retry = function (promiseFunction, numRetries, delayMs) {
@@ -530,8 +518,7 @@ var RetryWithDelay = (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Strings", function() { return Strings; });
-
-var Strings = (function () {
+var Strings = /** @class */ (function () {
     function Strings() {
     }
     Strings.sanitizeEmail = function (email) {
@@ -553,17 +540,6 @@ var Strings = (function () {
 
 module.exports = __webpack_require__(/*! ./index.ts */"./index.ts");
 
-
-/***/ }),
-
-/***/ "bcrypt":
-/*!*************************!*\
-  !*** external "bcrypt" ***!
-  \*************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("bcrypt");
 
 /***/ }),
 

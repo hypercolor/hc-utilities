@@ -10,6 +10,9 @@ export class JsonParse {
     static parseIntArrayFromJsonString(param: string): Array<number>;
 }
 
+/**
+    * @module Keygen
+    */
 export class Keygen {
         /**
             * Return a unique identifier with the given `len`.
@@ -30,7 +33,6 @@ export class Keygen {
             * @return {String} encrypted HMAC
             */
         static hmacSHA512(key: string, message: string): Promise<string>;
-        static hashSaltPassword(password: string): string;
 }
 
 export class Numbers {
@@ -54,10 +56,10 @@ export class PromiseQueue {
 }
 
 export class ResolvablePromise<T> {
-    resolve: (value?: T | PromiseLike<T>) => void;
-    reject: (reason?: any) => void;
     promise: Promise<T>;
     constructor(promise: Promise<T>);
+    resolve: (value?: T | PromiseLike<T>) => void;
+    reject: (reason?: any) => void;
 }
 
 export class RetryWithDelay {
