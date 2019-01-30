@@ -1,6 +1,6 @@
 {
   "name": "hc-utilities",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Various utility functions by Hypercolor Digital",
   "main": "index.js",
   "types": "index.d.ts",
@@ -136,9 +136,7 @@
     "webpack-config-utils": "2.3.0"
   },
   "dependencies": {
-    "@types/bcrypt": "2.0.0",
     "@types/p-queue": "2.3.1",
-    "bcrypt": "2.0.1",
     "p-queue": "2.4.2"
   }
 }
