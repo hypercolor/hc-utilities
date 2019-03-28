@@ -365,7 +365,7 @@ var PromiseQueue = /** @class */ (function () {
             throw new Error('Promise queue clear must be used with runAllPromiseFunctionsCancellable');
         }
     };
-    PromiseQueue.prototype.runAllPromiseFunctionsCancellable = function (promiseFunctions) {
+    PromiseQueue.prototype.runAllCancellable = function (promiseFunctions) {
         var _this = this;
         if (!promiseFunctions) {
             return Promise.reject('promiseFunctions was not supplied');
@@ -380,7 +380,7 @@ var PromiseQueue = /** @class */ (function () {
             return this.pendingPromise ? this.pendingPromise.promise : Promise.resolve();
         }
     };
-    PromiseQueue.prototype.runAllPromiseFunctions = function (promiseFunctions) {
+    PromiseQueue.prototype.runAll = function (promiseFunctions) {
         var _this = this;
         this.pendingPromise = null;
         if (!promiseFunctions) {
@@ -467,7 +467,7 @@ var RetryWithDelay = /** @class */ (function () {
         for (var ii = 0; ii < numRetries; ii++) {
             promiseFunctions.push(this.retryFunction(promiseFunction, delayMs, queue, ii, ii === numRetries - 1));
         }
-        return queue.runAllPromiseFunctionsCancellable(promiseFunctions)
+        return queue.runAllCancellable(promiseFunctions)
             .then(function (results) {
             // console.log('All promise functions complete: ' + JSON.stringify(results));
             return Promise.resolve(results);

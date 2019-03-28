@@ -24,7 +24,7 @@ export class PromiseQueue {
     }
   }
 
-  public runAllPromiseFunctionsCancellable<T>(promiseFunctions: Array<() => Promise<T>>): Promise<Array<T>> {
+  public runAllCancellable<T>(promiseFunctions: Array<() => Promise<T>>): Promise<Array<T>> {
     if (!promiseFunctions) {
       return Promise.reject('promiseFunctions was not supplied')
     } else if (promiseFunctions.length === 0) {
@@ -37,7 +37,7 @@ export class PromiseQueue {
     }
   }
 
-  public runAllPromiseFunctions<T>(promiseFunctions: Array<() => Promise<T>>): Promise<Array<T>> {
+  public runAll<T>(promiseFunctions: Array<() => Promise<T>>): Promise<Array<T>> {
     this.pendingPromise = null
     if (!promiseFunctions) {
       return Promise.reject('promiseFunctions was not supplied')

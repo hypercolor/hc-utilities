@@ -51,8 +51,8 @@ export class PromiseQueue {
     constructor(maxConcurrent?: number);
     add(promiseFunction: () => Promise<any>): Promise<any>;
     clear(resolvedResult: any): void;
-    runAllPromiseFunctionsCancellable<T>(promiseFunctions: Array<() => Promise<T>>): Promise<Array<T>>;
-    runAllPromiseFunctions<T>(promiseFunctions: Array<() => Promise<T>>): Promise<Array<T>>;
+    runAllCancellable<T>(promiseFunctions: Array<() => Promise<T>>): Promise<Array<T>>;
+    runAll<T>(promiseFunctions: Array<() => Promise<T>>): Promise<Array<T>>;
 }
 
 export class ResolvablePromise<T> {
