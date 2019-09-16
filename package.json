@@ -1,6 +1,6 @@
 {
   "name": "hc-utilities",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Various utility functions by Hypercolor Digital",
   "main": "index.js",
   "types": "index.d.ts",
@@ -95,10 +95,7 @@
     }
   },
   "devDependencies": {
-    "@types/express": "4.11.1",
-    "@types/jest": "20.0.2",
-    "@types/node": "7.0.31",
-    "@types/pluralize": "0.0.28",
+    "@types/p-queue": "2.3.1",
     "awesome-typescript-loader": "3.2.1",
     "commitizen": "2.9.6",
     "cross-var": "1.0.3",
@@ -130,7 +127,6 @@
     "webpack-config-utils": "2.3.0"
   },
   "dependencies": {
-    "@types/p-queue": "2.3.1",
     "p-queue": "2.4.2",
     "tslint-loader": "3.5.4"
   }
